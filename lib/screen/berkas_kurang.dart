@@ -8,11 +8,13 @@ class BerkasKurang extends StatefulWidget {
 }
 
 class _BerkasKurangState extends State<BerkasKurang> {
+  List list = ["Halo 1", "Halo 2", "Halo 3"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Petugas Verifikator"),
+        title: Text("Berkas Kurang"),
       ),
       drawer: Drawer(
         child: ListView(
@@ -35,17 +37,23 @@ class _BerkasKurangState extends State<BerkasKurang> {
             ListTile(
               leading: Icon(Icons.checklist),
               title: Text('Berkas Sudah di Verifikasi'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/berkas-sudah-diverifikasi');
+              },
             ),
             ListTile(
               leading: Icon(Icons.exposure_minus_1),
               title: Text('Berkas Kurang'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/berkas-kurang');
+              },
             ),
             ListTile(
               leading: Icon(Icons.remove_circle),
               title: Text('Berkas di Cabut'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/berkas-di-cabut');
+              },
             ),
             Divider(
               color: Colors.grey,
@@ -60,14 +68,38 @@ class _BerkasKurangState extends State<BerkasKurang> {
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Berkas Sudah di Verifikasi"),
-          ],
-        ),
-      ),
+      body: ListView.builder(
+          itemCount: list.length,
+          itemBuilder: (context, index) {
+            return Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.album),
+                    title: Text(list[index]),
+                    subtitle:
+                        Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      TextButton(
+                        child: const Text('BUY TICKETS'),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        child: const Text('LISTEN'),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          }),
     );
   }
 }

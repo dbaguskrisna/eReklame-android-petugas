@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petugas_wastib/screen/berkas_belum_diverifikasi.dart';
+import 'package:petugas_wastib/screen/berkas_dicabut.dart';
 import 'package:petugas_wastib/screen/berkas_kurang.dart';
 import 'package:petugas_wastib/screen/berkas_sudah_diverifikasi.dart';
 import 'package:petugas_wastib/screen/data_survey.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         "/berkas-belum-diverifikasi": (context) => BerkasBelumDiVerifikasi(),
         "/berkas-sudah-diverifikasi": (context) => BerkasSudahDiVerifikasi(),
         "/berkas-kurang": (context) => BerkasKurang(),
-        "/berkas-di-cabut": (context) => BerkasSudahDiVerifikasi()
+        "/berkas-di-cabut": (context) => BerkasDiCabut()
       },
     );
   }
